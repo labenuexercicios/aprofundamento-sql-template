@@ -1,3 +1,4 @@
+-- Active: 1673958565273@@127.0.0.1@3306
 -- Conecte o arquivo pratica-aprofundamento-sql.db com a extensão MySQL e ative a conexão aqui
 
 -- Deletar tabela
@@ -43,3 +44,53 @@ VALUES
 SELECT * FROM pokemons;
 
 -- Práticas
+
+SELECT * FROM pokemons
+WHERE speed > 60;
+
+SELECT * FROM pokemons
+WHERE attack >= 60 AND special_attack;
+
+SELECT * FROM pokemons
+WHERE name LIKE "%saur";
+
+-- Pratica 2
+
+SELECT AVG(HP) FROM pokemons;
+
+SELECT COUNT(*) FROM pokemons;
+
+SELECT COUNT (*) as CountOfLine FROM pokemons;
+
+-- Prtaica 3
+
+-- faça uma busca ordenada em ordem descrecente pela coluna defense
+
+SELECT * FROM pokemons
+ORDER BY defense DESC;
+
+--agrupe os pokemons por tipos
+SELECT
+COUNT(*) as qualityOfPokemons, 
+type as typeOfPokemons FROM pokemons
+GROUP BY type;
+
+--busque todos os pokemons, limite a 3 linhas iniciando a partir da quinta
+SELECT * FROM pokemons
+LIMIT 3 OFFSET 4;
+
+--filtrar o resultado, mostrando somente os itens que possuem a coluna type fire ou grass
+--ordem crescente na coluna attack
+--resultado das linhas limitado a 3 iniciando a partir da terceira linha
+
+SELECT * FROM pokemons
+WHERE type = "fire" OR type = "grass"
+ORDER BY attack ASC
+LIMIT 2,3;
+
+
+
+
+
+
+
