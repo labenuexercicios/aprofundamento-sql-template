@@ -43,3 +43,38 @@ VALUES
 SELECT * FROM pokemons;
 
 -- Práticas
+SELECT * FROM pokemons AS poke
+WHERE HP  >= 7;
+SELECT * FROM pokemons
+WHERE type = "water"
+    OR attack > 66;
+
+SELECT * FROM pokemons
+WHERE speed > 60;
+SELECT * FROM pokemons 
+WHERE attack  >= 60 
+    AND special_attack >= 60; 
+
+SELECT * FROM pokemons 
+WHERE name  LIKE "%saur";
+SELECT AVG(hp) AS vida
+FROM pokemons;
+SELECT COUNT(*) AS linhaDePokemons FROM pokemons;
+SELECT * FROM pokemons
+ORDER BY defense DESC;
+
+SELECT COUNT (*)
+type
+FROM pokemons
+GROUP BY type;
+SELECT * FROM pokemons
+LIMIT 3
+OFFSET 5;
+
+SELECT * FROM pokemons
+WHERE type = "fire" 
+    OR type = "grass"
+    ORDER BY attack ASC
+    LIMIT 3
+    OFFSET 3;
+
