@@ -1,3 +1,4 @@
+-- Active: 1695853383510@@127.0.0.1@3306
 -- Conecte o arquivo pratica-aprofundamento-sql.db com a extensão MySQL e ative a conexão aqui
 
 -- Deletar tabela
@@ -43,3 +44,47 @@ VALUES
 SELECT * FROM pokemons;
 
 -- Práticas
+
+-- Buscar speed maior que 60 em todas colunas --
+SELECT * FROM pokemons
+WHERE speed > 60;
+
+-- Buscar speed maior que 60 em colunar especificas --
+SELECT name, id, speed FROM pokemons
+WHERE speed > 60;
+
+-- Buscar ataque e especial ataque maior ou igual a 60 --
+SELECT * FROM pokemons
+WHERE atack >= 60 AND special_attack >= 60;
+
+-- Filtrar pokemons onde o nome tenha saur no final --
+SELECT * FROM pokemons
+WHERE name LIKE '%SAUR';
+
+-- Buscar pokemons e pegar media simples da media hp --
+
+SELECT AVG(hp) AS mediaHP FROM pokemons; 
+
+-- Buscar número de linhas de colunas de pokemon --
+SELECT COUNT(*) AS totalPokemons FROM pokemons;
+
+-- Buscar pokemons ordenar e trazer resposta em decrescente -- ADD
+SELECT * FROM pokemons ORDER BY defense DESC;
+
+-- Buscar a contagem de tipos pokemons e agrupar por tipo --
+SELECT COUNT(*), type FROM pokemons GROUP BY "type";
+
+-- Buscar todos os pokemons a partir da quinta linha e exibir 3 linhas --
+SELECT * FROM pokemons LIMIT 3 OFFSET 5;
+
+-- Prática 3.3 (alternativa)
+SELECT * FROM pokemons
+LIMIT 4, 3;
+
+-- FIXAÇÃO
+SELECT * FROM pokemons
+WHERE TYPE = 'fire'
+OR TYPE = 'grass'
+ORDER BY attack ASC
+LIMIT 3
+OFFSET 2;
